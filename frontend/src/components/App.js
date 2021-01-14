@@ -4,6 +4,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import LoginButton from "./LoginButton";
 import LogoutButton from "./LogoutButton";
+import SpotifyTest from "./SpotifyTest";
 
 const App = () => {
   const [accessToken, setAccessToken] = useState(
@@ -23,7 +24,10 @@ const App = () => {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         {accessToken ? (
-          <LogoutButton setAccessToken={setAccessToken} />
+          <div>
+            <LogoutButton setAccessToken={setAccessToken} />
+            <SpotifyTest />
+          </div>
         ) : (
           <LoginButton setAccessToken={setAccessToken} />
         )}
