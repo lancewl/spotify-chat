@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import logo from "./logo.svg";
 import "./App.css";
-import LoginButton from "./components/LoginButton";
+import LoginButton from "./LoginButton";
 
 const App = () => {
   const [spotifyAuthToken, setSpotifyAuthToken] = useState();
