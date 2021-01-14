@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-const LoginButton = () => {
+const LoginButton = (props) => {
   useEffect(() => {
     const hash = window.location.hash
       .substring(1)
@@ -12,10 +12,10 @@ const LoginButton = () => {
         }
         return initial;
       }, {});
-    const accessToken = hash.access_token;
+    const access_token = hash.access_token;
 
-    if (accessToken) {
-      document.cookie = `spotifyAuthToken=${accessToken}; max-age=${60 * 60};`;
+    if (access_token) {
+      props.setAccessToken(access_token);
     }
 
     window.location.hash = "";

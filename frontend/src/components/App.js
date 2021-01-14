@@ -3,32 +3,29 @@ import Cookies from "js-cookie";
 import logo from "./logo.svg";
 import "./App.css";
 import LoginButton from "./LoginButton";
+import LogoutButton from "./LogoutButton";
 
 const App = () => {
-  const [spotifyAuthToken, setSpotifyAuthToken] = useState();
+  const [accessToken, setAccessToken] = useState(
+    Cookies.get("spotify-access-token")
+  );
 
   useEffect(() => {
-    setSpotifyAuthToken(Cookies.get("spotifyAuthToken"));
-  }, [Cookies.get("spotifyAuthToken")]);
-
-  const logout = () => {
-    Cookies.remove("spotifyAuthToken", {
-      path: "",
-    });
-    window.location = "/";
-  };
+    if (accessToken) {
+      Cookies.set("spotify-access-token", accessToken, { expires: 1 });
+    } else {
+      Cookies.remove("spotify-access-token");
+    }
+  }, [accessToken]);
 
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        {Cookies.get("spotifyAuthToken") ? (
-          <div>
-            <p>You're login!</p>
-            <button onClick={logout}>Logout</button>
-          </div>
+        {accessToken ? (
+          <LogoutButton setAccessToken={setAccessToken} />
         ) : (
-          <LoginButton />
+          <LoginButton setAccessToken={setAccessToken} />
         )}
       </header>
     </div>
