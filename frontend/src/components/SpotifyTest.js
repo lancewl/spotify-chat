@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Cookies from "js-cookie";
 import spotify from "../api/SpotifyApi";
 
 const SpotifyTest = () => {
@@ -6,7 +7,9 @@ const SpotifyTest = () => {
 
   useEffect(() => {
     const getInfo = async () => {
-      const { data } = await spotify.get("/me");
+      const { data } = await spotify(Cookies.get("spotify-access-token")).get(
+        "/me"
+      );
 
       console.log(data);
       setUserInfo(data);

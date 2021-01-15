@@ -7,29 +7,17 @@ import LogoutButton from "./LogoutButton";
 import SpotifyTest from "./SpotifyTest";
 
 const App = () => {
-  const [accessToken, setAccessToken] = useState(
-    Cookies.get("spotify-access-token")
-  );
-
-  useEffect(() => {
-    if (accessToken) {
-      Cookies.set("spotify-access-token", accessToken, { expires: 1 });
-    } else {
-      Cookies.remove("spotify-access-token");
-    }
-  }, [accessToken]);
-
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        {accessToken ? (
+        {Cookies.get("spotify-access-token") ? (
           <div>
-            <LogoutButton setAccessToken={setAccessToken} />
+            <LogoutButton />
             <SpotifyTest />
           </div>
         ) : (
-          <LoginButton setAccessToken={setAccessToken} />
+          <LoginButton />
         )}
       </header>
     </div>
