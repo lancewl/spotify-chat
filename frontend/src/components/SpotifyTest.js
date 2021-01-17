@@ -7,9 +7,9 @@ const SpotifyTest = () => {
 
   useEffect(() => {
     const getInfo = async () => {
-      const { data } = await spotify(Cookies.get("spotify-access-token")).get(
-        "/me"
-      );
+      spotify.defaults.headers.common["Authorization"] =
+        "Bearer " + Cookies.get("spotify-access-token");
+      const { data } = await spotify.get("/me");
 
       console.log(data);
       setUserInfo(data);
