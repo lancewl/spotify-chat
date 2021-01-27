@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const LoginButton = () => {
+const Login = () => {
   const loginUrl = "http://localhost:8888/login";
   const classes = useStyles();
 
@@ -43,4 +43,4 @@ const LoginButton = () => {
   );
 };
 
-export default LoginButton;
+export default Login;
