@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import Container from "@material-ui/core/Container";
-import LoginButton from "./LoginButton";
+import Login from "./Login";
 import LogoutButton from "./LogoutButton";
 import SpotifyTest from "./SpotifyTest";
 
@@ -14,7 +14,7 @@ const App = () => {
           <SpotifyTest />
         </div>
       ) : (
-        <LoginButton />
+        <Login />
       )}
     </Container>
   );
