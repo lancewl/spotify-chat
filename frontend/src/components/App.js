@@ -1,21 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Cookies from "js-cookie";
 import Container from "@material-ui/core/Container";
 import Login from "./Login";
-import LogoutButton from "./LogoutButton";
-import SpotifyTest from "./SpotifyTest";
+import Lobby from "./Lobby";
 
 const App = () => {
   return (
     <Container component="main" maxWidth="xs">
-      {Cookies.get("spotify-access-token") ? (
-        <div>
-          <LogoutButton />
-          <SpotifyTest />
-        </div>
-      ) : (
-        <Login />
-      )}
+      {Cookies.get("spotify-access-token") ? <Lobby /> : <Login />}
     </Container>
   );
 };

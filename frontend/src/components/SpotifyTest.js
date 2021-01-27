@@ -20,7 +20,7 @@ const SpotifyTest = () => {
 
   const name = userInfo ? userInfo.display_name : "";
 
-  return <div>Hi {name}</div>;
+  return <p style={{ color: "white" }}>Api testing - username: {name}</p>;
 };
 
 export default SpotifyTest;
