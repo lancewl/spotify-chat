@@ -1,12 +1,13 @@
 import React, { useEffect } from "react";
+import Button from "@material-ui/core/Button";
 
 const LoginButton = () => {
   const loginUrl = "http://localhost:8888/login";
 
   return (
-    <a className="App-link" href={loginUrl} rel="noopener noreferrer">
-      Continue with Sporify
-    </a>
+    <Button variant="contained" href={loginUrl} color="primary">
+      Continue with Spotify
+    </Button>
   );
 };
 

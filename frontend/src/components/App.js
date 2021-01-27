@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from "react";
 import Cookies from "js-cookie";
-import logo from "./logo.svg";
-import "./App.css";
+import Container from "@material-ui/core/Container";
+import Box from "@material-ui/core/Box";
 import LoginButton from "./LoginButton";
 import LogoutButton from "./LogoutButton";
 import SpotifyTest from "./SpotifyTest";
 
 const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+    <Container component="main" maxWidth="xs">
+      <Box my={5} textAlign="center">
         {Cookies.get("spotify-access-token") ? (
           <div>
             <LogoutButton />
@@ -19,8 +18,8 @@ const App = () => {
         ) : (
           <LoginButton />
         )}
-      </header>
-    </div>
+      </Box>
+    </Container>
   );
 };
 
