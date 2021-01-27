@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Login = () => {
+const Signin = () => {
   const loginUrl = "http://localhost:8888/login";
   const classes = useStyles();
 
@@ -43,4 +43,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Signin;
