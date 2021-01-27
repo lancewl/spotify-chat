@@ -1,26 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Cookies from "js-cookie";
-import logo from "./logo.svg";
-import "./App.css";
-import LoginButton from "./LoginButton";
-import LogoutButton from "./LogoutButton";
-import SpotifyTest from "./SpotifyTest";
+import Container from "@material-ui/core/Container";
+import Signin from "./Signin";
+import Lobby from "./Lobby";
 
 const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        {Cookies.get("spotify-access-token") ? (
-          <div>
-            <LogoutButton />
-            <SpotifyTest />
-          </div>
-        ) : (
-          <LoginButton />
-        )}
-      </header>
-    </div>
+    <Container component="main" maxWidth="xs">
+      {Cookies.get("spotify-access-token") ? <Lobby /> : <Signin />}
+    </Container>
   );
 };
 
